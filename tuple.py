@@ -43,7 +43,7 @@ if __name__ == "__main__":
     
     new_1 = convertToTuple(face)
     new_2 = convertToTuple(hair)
-    new_4 = convertToTuple(rEar)
+    new_3 = convertToTuple(rEar)
     new_4 = convertToTuple(lEar)
     new_5 = convertToTuple(leftEyebrow)
     new_6 = convertToTuple(rightEyebrow)
@@ -51,9 +51,7 @@ if __name__ == "__main__":
     new_8 = convertToTuple(rightEye)
     new_9 = convertToTuple(Nose)
     new_10 = convertToTuple(Mouth)
-
-    for i in range(10):
-        i += 1
-        title = "new_" + str(i)
-        print(title)
-        writeToFile(title)
+    new_list = [new_1,new_2,new_3,new_4,new_5,new_6,new_7,new_8,new_9,new_10]
+    # writeToFile(new_1)
+    for i in new_list:
+        writeToFile(i)
