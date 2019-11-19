@@ -4,18 +4,13 @@ def convertToTuple(x):
 
 def outputfile(t):
     with open('vertex.txt','a+'):
-        f.write(str(t) + "\n")
+        f.write('vertex'+ str(t) + ';' + "\n")
 
 def writeToFile(stuff):
     f.write('Feature \n')
     for x in stuff:
         #another function
         outputfile(x)
-
-# def title(stuff):
-#     for x in range(9):
-#         newName = 'new_' + title
-#         new = convertToTuple(x)
 
 if __name__ == "__main__":
     f = open('vertex.txt','w+')
@@ -39,19 +34,8 @@ if __name__ == "__main__":
     Nose = [523,731,519,756,515,783,511,816,504,847,493,868,478,891,478,907,484,925,494,928,507,917,525,917,534,925,537,933,544,937,557,937,569,935,579,922,585,913,599,910,615,905,630,906,645,907,657,894,660,884,660,873,652,856,634,850,618,848,603,847,593,815,589,793,583,757,583,718]
 
     Mouth = [447,1074,457,1089,469,1111,482,1131,504,1140,530,1142,557,1142,586,1138,608,1137,640,1130,667,1122,688,1111,706,1093,720,1072,735,1054,745,1037,748,1014,745,1000,720,989,688,975,653,971,619,972,594,979,579,983,544,981,515,985,491,995,467,1005,448,1018,431,1037]
-
     
-    new_1 = convertToTuple(face)
-    new_2 = convertToTuple(hair)
-    new_3 = convertToTuple(rEar)
-    new_4 = convertToTuple(lEar)
-    new_5 = convertToTuple(leftEyebrow)
-    new_6 = convertToTuple(rightEyebrow)
-    new_7 = convertToTuple(leftEye)
-    new_8 = convertToTuple(rightEye)
-    new_9 = convertToTuple(Nose)
-    new_10 = convertToTuple(Mouth)
-    new_list = [new_1,new_2,new_3,new_4,new_5,new_6,new_7,new_8,new_9,new_10]
-    # writeToFile(new_1)
-    for i in new_list:
-        writeToFile(i)
+    features = [face,hair,rEar,lEar,leftEyebrow,rightEyebrow,leftEye,rightEye,Nose,Mouth]
+
+    for x in features:
+        writeToFile(convertToTuple(x))
