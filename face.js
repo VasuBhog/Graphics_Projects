@@ -1,7 +1,5 @@
 // Javascript to create 2d imagemap on images
 
-// const fs = require('fs')
-
 function setup() {
   createCanvas(986,1288);
 }
@@ -40,7 +38,6 @@ function drawLine(){
   console.log("DRAWLINE");
   lenVert = listVert.length;
   if (lenVert > 3){
-    console.log("TRUE");
     context.moveTo(listVert[lenVert - 4],listVert[lenVert-3]);
     // for (var i = 2; i <= listVert.length - 1; i = i+2){
     context.lineTo(listVert[lenVert-2],listVert[lenVert-1]);
@@ -111,4 +108,22 @@ function drawVertex(){
     context.strokeStyle = 'black'    
     context.stroke();
   }
+}
+
+window.oncontextmenu = function ()
+{   
+    console.log("RIGHT CLICK")
+    lenVert = listVert.length;
+    x = listVert[lenVert - 4];
+    y = listVert[lenVert - 3];
+    x2 = listVert[lenVert - 2];
+    y2 = listVert[lenVert - 1];
+
+    listVert.pop();
+    listVert.pop();
+    console.log(listVert);
+    context.clearRect(x, y, x2, y2);
+    
+    // showCustomMenu();
+    // return false;     // cancel default menu
 }

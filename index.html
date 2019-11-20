@@ -5,12 +5,16 @@
   </head>
   <style>
       .button {
-        display: inline-block;
-        clear: none;
+        display: block;
+        clear: both;
         margin: 10px;
         height: 100px;
         width: 200px;
-        font-size: 50px;
+        font-size: 40px;
+        position: static;
+      }
+      .input {
+        display: block;
         position: static;
       }
   </style>
@@ -20,10 +24,10 @@
     <script src="face.js"></script>
     <script src="FileSaver.js"></script>
     <button class="button" type="button" onclick="lastPoint(event);">Done</button>
-    <button class="button"type="button" onclick="saveList(event);">Save</button>
+    <button class="button" type="button" onclick="saveList(event);">Save</button>
     <button class="button" type="button" onclick="clearPoints(event);">Clear</button>
     <button class="button" type="button" onclick="removeImg(event);">Remove Image</button>
-    <input type='file' accept='text/plain' onchange='readFile(event)'>
+    <input class="input" type='file' accept='text/plain' onchange='readFile(event)'>
   </body>
 </html>
 
