@@ -23,101 +23,279 @@
 <area target="" alt="Mouth" title="Mouth" href="" coords="447,1074,457,1089,469,1111,482,1131,504,1140,530,1142,557,1142,586,1138,608,1137,640,1130,667,1122,688,1111,706,1093,720,1072,735,1054,745,1037,748,1014,745,1000,720,989,688,975,653,971,619,972,594,979,579,983,544,981,515,985,491,995,467,1005,448,1018,431,1037" shape="poly">
 </map>] */
 
-
+face = new Image()
+// face = '/Users/vasubhog/Desktop/Resume/Vasu Bhog Bio Picture.png'
 function setup() {
-  createCanvas(2000,2000);
-  fill(color(255,255,255));
+  createCanvas(986,1288);
 }
 
-function draw() {
-  //face
-  fill(color(170,60,15));
-  beginShape()
-  vertex(902,672)
-  vertex(919,782);
-  vertex(917,919);
-  vertex(903,1053);
-  vertex(852,1153);
-  vertex(781,1237);
-  vertex(716,1284);
-  vertex(639,1310);
-  vertex(558,1315);
-  vertex(511,1295);
-  vertex(451,1246);
-  vertex(400,1221);
-  vertex(336,1143);
-  vertex(317,1099);
-  vertex(288,1009);
-  vertex(281,934);
-  vertex(257,785);
-  vertex(254,731);
-  vertex(271,665);
-  vertex(274,600);
-  vertex(295,542);
-  vertex(315,499);
-  vertex(345,465);
-  vertex(421,421);
-  vertex(460,410);
-  vertex(516,433);
-  vertex(606,450);
-  vertex(702,438);
-  vertex(777,456);
-  vertex(837,526);
-  endShape();
+var listVert = [];
+var image = document.getElementById('face');
+var canvas = document.getElementById('mycanvas');
+canvas.style.position = 'absolute'
+canvas.style.left = 0;
+canvas.style.right = 0;
+var context = canvas.getContext('2d');
 
-  //hair
-  beginShape();
-  fill(51);
-  vertex(267,903);
-  vertex(224,777);
-  vertex(201,656);
-  vertex(210,579);
-  vertex(221,510);
-  vertex(252,443);
-  vertex(293,387);
-  vertex(349,342);
-  vertex(404,308);
-  vertex(458,277);
-  vertex(524,256);
-  vertex(584,257);
-  vertex(635,248);
-  vertex(679,252);
-  vertex(722,265);
-  vertex(759,283);
-  vertex(815,303);
-  vertex(836,327);
-  vertex(863,363);
-  vertex(892,420);
-  vertex(907,465);
-  vertex(923,506);
-  vertex(933,553);
-  vertex(937,595);
-  vertex(951,650);
-  vertex(960,703);
-  vertex(959,721);
-  vertex(939,722);
-  vertex(930,752);
-  vertex(933,814);
-  vertex(926,839);
-  vertex(923,795);
-  vertex(911,711);
-  vertex(902,677);
-  vertex(884,636);
-  vertex(845,538);
-  vertex(805,477);
-  vertex(765,453);
-  vertex(694,437);
-  vertex(592,454);
-  vertex(531,433);
-  vertex(493,420);
-  vertex(460,409);
-  vertex(403,428);
-  vertex(341,466);
-  vertex(298,516);
-  vertex(277,597);
-  vertex(265,671);
-  vertex(256,724);
-  vertex(257,801);
-  vertex(259,870);
-  endShape();
+
+document.addEventListener('click',printVertex,true);
+function printVertex(event){
+  var x = event.pageX;
+  var y = event.pageY;
+  listVert.push(x,y);
+  print(listVert);
+  context.beginPath();
+  context.arc(x,y,5,0,2 * Math.PI,false);
+  context.fillStyle = 'blue';
+  context.fill();
+  context.lineWidth = 3;
+  context.strokeStyle = 'red'
+  context.stroke();
 }
+
+
+
+
+// display all values
+
+
+
+
+// function draw() {
+//   //face
+//   fill(color(170,60,15));
+//   beginShape()
+//   vertex(902,672)
+//   vertex(919,782);
+//   vertex(917,919);
+//   vertex(903,1053);
+//   vertex(852,1153);
+//   vertex(781,1237);
+//   vertex(716,1284);
+//   vertex(639,1310);
+//   vertex(558,1315);
+//   vertex(511,1295);
+//   vertex(451,1246);
+//   vertex(400,1221);
+//   vertex(336,1143);
+//   vertex(317,1099);
+//   vertex(288,1009);
+//   vertex(281,934);
+//   vertex(257,785);
+//   vertex(254,731);
+//   vertex(271,665);
+//   vertex(274,600);
+//   vertex(295,542);
+//   vertex(315,499);
+//   vertex(345,465);
+//   vertex(421,421);
+//   vertex(460,410);
+//   vertex(516,433);
+//   vertex(606,450);
+//   vertex(702,438);
+//   vertex(777,456);
+//   vertex(837,526);
+//   endShape();
+
+//   //hair
+//   beginShape();
+//   fill(51);
+//   vertex(259, 259);
+//   vertex(898, 898);
+//   vertex(224, 224);
+//   vertex(777, 777);
+//   vertex(201, 201);
+//   vertex(656, 656);
+//   vertex(210, 210);
+//   vertex(579, 579);
+//   vertex(221, 221);
+//   vertex(510, 510);
+//   vertex(252, 252);
+//   vertex(443, 443);
+//   vertex(293, 293);
+//   vertex(387, 387);
+//   vertex(349, 349);
+//   vertex(342, 342);
+//   vertex(402, 402);
+//   vertex(308, 308);
+//   vertex(454, 454);
+//   vertex(278, 278);
+//   vertex(515, 515);
+//   vertex(256, 256);
+//   vertex(573, 573);
+//   vertex(244, 244);
+//   vertex(621, 621);
+//   vertex(240, 240);
+//   vertex(673, 673);
+//   vertex(242, 242);
+//   vertex(718, 718);
+//   vertex(250, 250);
+//   vertex(761, 761);
+//   vertex(268, 268);
+//   vertex(807, 807);
+//   vertex(293, 293);
+//   vertex(839, 839);
+//   vertex(323, 323);
+//   vertex(864, 864);
+//   vertex(359, 359);
+//   vertex(893, 893);
+//   vertex(406, 406);
+//   vertex(914, 914);
+//   vertex(443, 443);
+//   vertex(925, 925);
+//   vertex(494, 494);
+//   vertex(939, 939);
+//   vertex(540, 540);
+//   vertex(943, 943);
+//   vertex(587, 587);
+//   vertex(951, 951);
+//   vertex(644, 644);
+//   vertex(960, 960);
+//   vertex(703, 703);
+//   vertex(959, 959);
+//   vertex(720, 720);
+//   vertex(942, 942);
+//   vertex(722, 722);
+//   vertex(933, 933);
+//   vertex(756, 756);
+//   vertex(933, 933);
+//   vertex(814, 814);
+//   vertex(917, 917);
+//   vertex(858, 858);
+//   vertex(918, 918);
+//   vertex(794, 794);
+//   vertex(903, 903);
+//   vertex(711, 711);
+//   vertex(901, 901);
+//   vertex(680, 680);
+//   vertex(877, 877);
+//   vertex(633, 633);
+//   vertex(835, 835);
+//   vertex(540, 540);
+//   vertex(798, 798);
+//   vertex(491, 491);
+//   vertex(764, 764);
+//   vertex(457, 457);
+//   vertex(701, 701);
+//   vertex(446, 446);
+//   vertex(608, 608);
+//   vertex(454, 454);
+//   vertex(532, 532);
+//   vertex(443, 443);
+//   vertex(487, 487);
+//   vertex(429, 429);
+//   vertex(450, 450);
+//   vertex(423, 423);
+//   vertex(409, 409);
+//   vertex(434, 434);
+//   vertex(348, 348);
+//   vertex(472, 472);
+//   vertex(309, 309);
+//   vertex(521, 521);
+//   vertex(283, 283);
+//   vertex(597, 597);
+//   vertex(276, 276);
+//   vertex(673, 673);
+//   vertex(260, 260);
+//   vertex(726, 726);
+//   vertex(261, 261);
+//   vertex(797, 797);
+//   vertex(280, 280);
+//   vertex(926, 926);
+//   endShape();
+
+//   // fill(color(170,60,15));
+//   // beginShape();
+//   // vertex(939, 939);
+//   // vertex(981, 981);
+//   // vertex(954, 954);
+//   // vertex(980, 980);
+//   // vertex(973, 973);
+//   // vertex(957, 957);
+//   // vertex(979, 979);
+//   // vertex(940, 940);
+//   // vertex(975, 975);
+//   // vertex(921, 921);
+//   // vertex(970, 970);
+//   // vertex(912, 912);
+//   // vertex(973, 973);
+//   // vertex(901, 901);
+//   // vertex(977, 977);
+//   // vertex(873, 873);
+//   // vertex(979, 979);
+//   // vertex(849, 849);
+//   // vertex(975, 975);
+//   // vertex(828, 828);
+//   // vertex(971, 971);
+//   // vertex(812, 812);
+//   // vertex(971, 971);
+//   // vertex(790, 790);
+//   // vertex(971, 971);
+//   // vertex(779, 779);
+//   // vertex(971, 971);
+//   // vertex(765, 765);
+//   // vertex(973, 973);
+//   // vertex(747, 747);
+//   // vertex(964, 964);
+//   // vertex(729, 729);
+//   // vertex(958, 958);
+//   // vertex(723, 723);
+//   // vertex(943, 943);
+//   // vertex(723, 723);
+//   // vertex(938, 938);
+//   // vertex(737, 737);
+//   // vertex(935, 935);
+//   // vertex(758, 758);
+//   // vertex(930, 930);
+//   // vertex(826, 826);
+//   // vertex(920, 920);
+//   // vertex(849, 849);
+//   // vertex(919, 919);
+//   // vertex(895, 895);
+//   // vertex(914, 914);
+//   // vertex(936, 936);
+//   // vertex(916, 916);
+//   // vertex(960, 960);
+//   // vertex(921, 921);
+//   // vertex(975, 975);
+//   // endShape();
+
+//   // beginShape();
+//   // fill(color(170,60,15));
+//   // vertex(292, 292);
+//   // vertex(1038, 1038);
+//   // vertex(279, 279);
+//   // vertex(1034, 1034);
+//   // vertex(269, 269);
+//   // vertex(1020, 1020);
+//   // vertex(269, 269);
+//   // vertex(1002, 1002);
+//   // vertex(266, 266);
+//   // vertex(989, 989);
+//   // vertex(267, 267);
+//   // vertex(974, 974);
+//   // vertex(263, 263);
+//   // vertex(956, 956);
+//   // vertex(258, 258);
+//   // vertex(945, 945);
+//   // vertex(256, 256);
+//   // vertex(927, 927);
+//   // vertex(256, 256);
+//   // vertex(908, 908);
+//   // vertex(256, 256);
+//   // vertex(890, 890);
+//   // vertex(261, 261);
+//   // vertex(903, 903);
+//   // vertex(268, 268);
+//   // vertex(910, 910);
+//   // vertex(280, 280);
+//   // vertex(925, 925);
+//   // vertex(279, 279);
+//   // vertex(945, 945);
+//   // vertex(280, 280);
+//   // vertex(966, 966);
+//   // vertex(283, 283);
+//   // vertex(1000, 1000);
+//   // endShape();
+
+// }
