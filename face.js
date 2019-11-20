@@ -73,10 +73,42 @@ function saveList(event){
 
 function clearPoints(event){
   listVert=[]
-  // context.clearRect(0, 0, canvas.width, canvas.height);
+  context.clearRect(0, 0, canvas.width, canvas.height);
 };
 
 function removeImg(event){
   img.style.display = 'none';
 };
 
+var vert = [];
+
+function readFile(event){
+  var input = event.target;
+    var file = input.files[0];
+    var f = document.getElementById('f');
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      f = reader.result;
+      vert = [];
+      vert.push(f.split(","));
+      drawVertex();
+    }
+    reader.readAsText(file);
+};
+
+function drawVertex(){
+  if (typeof(vert) == 'undefined'){
+    vert = vert[0]
+  }
+  Nvert = vert[0]
+  context.moveTo(Nvert[0],Nvert[1]);
+  vlen = Nvert.length;
+  if (vlen > 3){
+    for (var i = 4; i <= vlen - 1; i = i+2){
+      context.lineTo(Nvert[i],Nvert[i+1]); 
+    }
+    context.lineWidth = 3;
+    context.strokeStyle = 'black'    
+    context.stroke();
+  }
+}
