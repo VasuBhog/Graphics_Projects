@@ -3,10 +3,27 @@
   <head>
     <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
   </head>
+  <style>
+      .button {
+        display: inline-block;
+        clear: none;
+        margin: 10px;
+        height: 100px;
+        width: 200px;
+        font-size: 50px;
+        position: static;
+      }
+  </style>
   <body>
-    <img id='face' src="/Users/vasubhog/Desktop/Fall Semester 2019/Computer Graphics/face.PNG" alt='My face'>
+    <img id="face" src="face.png" alt='My face'>
     <canvas id='mycanvas' width='986' height='1288'></canvas>
     <script src="face.js"></script>
+    <script src="FileSaver.js"></script>
+    <button class="button" type="button" onclick="lastPoint(event);">Done</button>
+    <button class="button"type="button" onclick="saveList(event);">Save</button>
+    <button class="button" type="button" onclick="clearPoints(event);">Clear</button>
+    <button class="button" type="button" onclick="removeImg(event);">Remove Image</button>
+    <!-- <input type='file' accept='text/plain' onchange='drawVertex(event)'> -->
   </body>
 </html>
 
