@@ -1,9 +1,6 @@
 // Javascript to create 2d imagemap on images
 
-function setup() {
-  createCanvas(986,1288);
-}
-
+//Get and set 
 var listVert = [];
 var img = document.getElementById('face');
 var canvas = document.getElementById('mycanvas');
@@ -12,7 +9,16 @@ canvas.style.left = 0;
 canvas.style.right = 0;
 var context = canvas.getContext('2d');
 var btn = document.createElement("BUTTON")
+var vert = [];
 
+//Initialize based on size of image
+function setup() {
+  wid = img.width
+  h = img.height
+  createCanvas(wid,h);
+}
+
+//DRAWS points based on clicks
 document.addEventListener('click',printVertex,true);
 function printVertex(event){
   var x = event.pageX;
@@ -31,6 +37,7 @@ function printVertex(event){
   }
 };
 
+//DRAWS LINE based on TWO Vertices
 function drawLine(){
   // console.log("DRAWLINE");
   lenVert = listVert.length;
@@ -39,11 +46,12 @@ function drawLine(){
     // for (var i = 2; i <= listVert.length - 1; i = i+2){
     context.lineTo(listVert[lenVert-2],listVert[lenVert-1]);
     context.lineWidth = 1;
-    context.strokeStyle = 'black'    
+    context.strokeStyle = 'red'    
     context.stroke();
   }
 };
 
+//DONE FUNCTION
 function lastPoint(event){
   console.log("LAST POINT CONNECT")
   lenVert = listVert.length;
@@ -51,13 +59,17 @@ function lastPoint(event){
   lPointx = listVert[lenVert-1]
   fPointy = listVert[1]
   fPointx = listVert[0]
+  listVert.push(fPointx)
+  listVert.push(fPointy)
+
   context.moveTo(lPointx,lPointy);
   context.lineTo(fPointx,fPointy);
-  context.lineWidth = 3;
-  context.strokeStyle = 'black'    
+  context.lineWidth = 2;
+  context.strokeStyle = 'red'    
   context.stroke();
 };
 
+//SAVE FUNCTION
 function saveList(event){
   console.log("SAVE LIST");
   var blob = new Blob([listVert.toString()],{ type: "text/plain;charset=utf-8" });
@@ -65,31 +77,35 @@ function saveList(event){
   // listVert=[]
 };
 
+//CLEAR FUNCTION
 function clearPoints(event){
   listVert=[]
   context.clearRect(0, 0, canvas.width, canvas.height);
 };
 
+//Removes Image 
 function removeImg(event){
-  img.style.display = 'none';
+  img.style.visibility = 'hidden';
 };
 
-var vert = [];
-
+//Reads file given input
 function readFile(event){
-  var input = event.target;
-    var file = input.files[0];
-    var f = document.getElementById('f');
+  var files = event.target.files;
+  for (var i = 0, f; f = files[i]; i++){
+    // console.log(f);
     var reader = new FileReader();
     reader.onload = function(e) {
-      f = reader.result;
-      vert = [];
-      vert.push(f.split(","));
-      drawVertex();
-    }
-    reader.readAsText(file);
+        var content = e.target.result;
+        console.log(f)
+        vert = []; 
+        vert.push(content.split(","));
+        drawVertex();
+      };
+    reader.readAsText(f);
+    };
 };
 
+//DRAW VERTEXS AFTER FILE
 function drawVertex(){
   if (typeof(vert) == 'undefined'){
     vert = vert[0]
@@ -101,8 +117,8 @@ function drawVertex(){
     for (var i = 4; i <= vlen - 1; i = i+2){
       context.lineTo(Nvert[i],Nvert[i+1]); 
     }
-    context.lineWidth = 1;
-    context.strokeStyle = 'black'    
+    context.lineWidth = 2;
+    context.strokeStyle = 'red'    
     context.stroke();
   }
 }
