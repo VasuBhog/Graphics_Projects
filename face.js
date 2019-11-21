@@ -14,9 +14,6 @@ var context = canvas.getContext('2d');
 var btn = document.createElement("BUTTON")
 
 
-
-
-document.addEventListener('click',printVertex,true);
 function printVertex(event){
   var x = event.pageX;
   var y = event.pageY;
@@ -27,7 +24,7 @@ function printVertex(event){
     context.arc(x,y,2,0,2 * Math.PI,false);
     context.fillStyle = 'blue';
     context.fill();
-    context.lineWidth = 3;
+    context.lineWidth = 1;
     context.strokeStyle = 'red'
     context.stroke();
     drawLine();
@@ -35,13 +32,13 @@ function printVertex(event){
 };
 
 function drawLine(){
-  console.log("DRAWLINE");
+  // console.log("DRAWLINE");
   lenVert = listVert.length;
   if (lenVert > 3){
     context.moveTo(listVert[lenVert - 4],listVert[lenVert-3]);
     // for (var i = 2; i <= listVert.length - 1; i = i+2){
     context.lineTo(listVert[lenVert-2],listVert[lenVert-1]);
-    context.lineWidth = 3;
+    context.lineWidth = 1;
     context.strokeStyle = 'black'    
     context.stroke();
   }
@@ -104,11 +101,12 @@ function drawVertex(){
     for (var i = 4; i <= vlen - 1; i = i+2){
       context.lineTo(Nvert[i],Nvert[i+1]); 
     }
-    context.lineWidth = 3;
+    context.lineWidth = 1;
     context.strokeStyle = 'black'    
     context.stroke();
   }
 }
+
 
 window.oncontextmenu = function ()
 {   
@@ -122,7 +120,31 @@ window.oncontextmenu = function ()
     listVert.pop();
     listVert.pop();
     console.log(listVert);
-    context.clearRect(x, y, x2, y2);
+    //(0,0) is top left corner 
+    //As you go down Y increases
+    //As you go right X increases
+
+    //Q2
+    if (x2 < x && y2 < y){
+      console.log("Regular clear for Q2");
+      context.clearRect(x,y-2,-x2,-y2);
+    //Q3
+    }else if (x2 < x && y2 > y){
+      console.log("Regular clear for Q3");
+      context.clearRect(x,y-2,-x2,y2);
+    //Q1 
+    }else if (y2 < y){
+      console.log("y2 is less");
+      context.clearRect(x, y, x2, -y2);
+    //Q4
+    }else{
+      console.log("Regular clear for Q4");
+      context.clearRect(x, y-2, x2, y2);
+    }
+    if(lenVert == 2){
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      console.log("Clear ALL POINTS");
+    }
     
     // showCustomMenu();
     // return false;     // cancel default menu
