@@ -73,7 +73,8 @@ function lastPoint(event){
 function saveList(event){
   console.log("SAVE LIST");
   var blob = new Blob([listVert.toString()],{ type: "text/plain;charset=utf-8" });
-  saveAs(blob,"vertex.txt");
+  var inputName = prompt("Name of the file?");
+  saveAs(blob,inputName);
   // listVert=[]
 };
 
