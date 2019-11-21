@@ -13,7 +13,7 @@ canvas.style.right = 0;
 var context = canvas.getContext('2d');
 var btn = document.createElement("BUTTON")
 
-
+document.addEventListener('click',printVertex,true);
 function printVertex(event){
   var x = event.pageX;
   var y = event.pageY;
