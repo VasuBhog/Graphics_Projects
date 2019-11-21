@@ -10,6 +10,8 @@ canvas.style.right = 0;
 var context = canvas.getContext('2d');
 var btn = document.createElement("BUTTON")
 var vert = [];
+var wid;
+var h;
 
 //Initialize based on size of image
 function setup() {
@@ -74,7 +76,11 @@ function saveList(event){
   console.log("SAVE LIST");
   var blob = new Blob([listVert.toString()],{ type: "text/plain;charset=utf-8" });
   var inputName = prompt("Name of the file?");
-  saveAs(blob,inputName);
+  if (inputName){
+    saveAs(blob,inputName);
+  }else{
+    window.alert("Please input a name for the file!")
+  }
   // listVert=[]
 };
 
