@@ -18,15 +18,16 @@
         position: static;
       }
 
-      #face, #mycanvas {
+      /* #face, #mycanvas {
         cursor: crosshair;
         
-      }
+      } */
       
   </style>
   <body class="body">
-    <img id="face" src="face.png" alt='My face'>
-    <canvas id='mycanvas' width='986' height='1288'></canvas>
+    <input type="file" onchange="imageBackground(event);"/>
+    <img id="face" src="" alt='Your Image'>
+    <!-- <canvas id='mycanvas'></canvas> -->
     <script src="face.js"></script>
     <script src="FileSaver.js"></script>
     <button class="button" type="button" onclick="lastPoint(event);">Done</button>

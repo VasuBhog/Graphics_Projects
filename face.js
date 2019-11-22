@@ -4,25 +4,38 @@
 var listVert = [];
 var img = document.getElementById('face');
 var canvas = document.getElementById('mycanvas');
-canvas.style.position = 'absolute'
-canvas.style.left = 0;
-canvas.style.right = 0;
-var context = canvas.getContext('2d');
 var btn = document.createElement("BUTTON")
 var vert = [];
 var wid;
 var h;
 
+
+// window.onload = function() {
+function imageBackground(event){
+  file = event.target.file;
+  console.log(file[0])
+  if (file[0]){
+    img.src = URL.createObjectURL(file[0]);
+  }
+}
+
 //Initialize based on size of image
 function setup() {
   wid = img.width
   h = img.height
-  createCanvas(wid,h);
+  var canvas = createCanvas(wid,h);
 }
+
+var context = canvas.getContext('2d');
+canvas.style.position = 'absolute'
+canvas.style.left = 0;
+canvas.style.right = 0;
+
 
 //DRAWS points based on clicks
 document.addEventListener('click',printVertex,true);
 function printVertex(event){
+  document.getElementById("mycanvas").style.cursor = "crosshair";
   var x = event.pageX;
   var y = event.pageY;
   if (x < 986 && y < 1288){
