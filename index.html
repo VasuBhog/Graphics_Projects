@@ -24,17 +24,20 @@
       } */
       
   </style>
-  <body class="body">
-    <input type="file" onchange="imageBackground(event);"/>
-    <img id="face" src="" alt='Your Image'>
-    <!-- <canvas id='mycanvas'></canvas> -->
+  <body>
     <script src="face.js"></script>
     <script src="FileSaver.js"></script>
-    <button class="button" type="button" onclick="lastPoint(event);">Done</button>
-    <button class="button" type="button" onclick="saveList(event);">Save</button>
-    <button class="button" type="button" onclick="clearPoints(event);">Clear</button>
-    <button class="button" type="button" onclick="removeImg(event);">Remove Image</button>
-    <input class="input" type='file' name="files[]" accept='text/plain' multiple="multiple" onchange='readFile(event)'>
+    <input type="file" accept="image/*" onchange="imageBackground(event);"/>
+    <img id="face" alt='Your Image' width="1000" height="1000">
+    <!-- <canvas id='mycanvas'></canvas> -->
+
+    <div id="buttons" onload="script()">
+      <button class="button" type="button" onclick="lastPoint(event);">Done</button>
+      <button class="button" type="button" onclick="saveList(event);">Save</button>
+      <button class="button" type="button" onclick="clearPoints(event);">Clear</button>
+      <button class="button" type="button" onclick="removeImg(event);">Remove Image</button>
+      <input class="input" type='file' name="files[]" accept='text/plain' multiple="multiple" onchange='readFile(event)'>
+    </div>
   </body>
 </html>
 
