@@ -2,41 +2,35 @@
 <html>
   <head>
     <script src="https://cdn.jsdelivr.net/npm/p5@0.10.2/lib/p5.js"></script>
-  </head>
-  <style>
-      .button {
-        display: block;
-        margin: 10px;
-        height: 100px;
-        width: 200px;
-        font-size: 40px;
-        position: static;
-        /* top:1288px; */
-      }
-      .input {
-        display: block;
-        position: static;
-      }
-
-      /* #face, #mycanvas {
-        cursor: crosshair;
-        
-      } */
-      
-  </style>
-  <body>
+    <style>
+        .button {
+          display: block;
+          margin: 10px;
+          height: 100px;
+          width: 200px;
+          font-size: 40px;
+          position: static;
+          /* top:1288px; */
+        }
+        .input {
+          display: block;
+          position: static;
+        }
+    </style>
     <script src="face.js"></script>
     <script src="FileSaver.js"></script>
-    <input type="file" accept="image/*" onchange="imageBackground(event);"/>
-    <img id="face" alt='Your Image' width="1000" height="1000">
+  </head>
+  <body>
     <!-- <canvas id='mycanvas'></canvas> -->
+    <img id="face" alt='Your Image' width=auto height=auto><br>
+    <input id="imgFile" type="file" accept="image/*" onchange="imageBackground(event);"/>
 
-    <div id="buttons" onload="script()">
-      <button class="button" type="button" onclick="lastPoint(event);">Done</button>
-      <button class="button" type="button" onclick="saveList(event);">Save</button>
-      <button class="button" type="button" onclick="clearPoints(event);">Clear</button>
-      <button class="button" type="button" onclick="removeImg(event);">Remove Image</button>
-      <input class="input" type='file' name="files[]" accept='text/plain' multiple="multiple" onchange='readFile(event)'>
+    <div id="buttons">
+      <button id="done" class="button" type="button" onclick="lastPoint();">Done</button>
+      <button id="save" class="button" type="button" onclick="saveList();">Save</button>
+      <button id="clear" class="button" type="button" onclick="clearPoints();">Clear</button>
+      <button id="remove" class="button" type="button" onclick="removeImg();">Remove Image</button>
+      <input id="vertexFile" class="input" type='file' name="files[]" accept='text/plain' multiple="multiple" onchange='readFile(event)'>
     </div>
   </body>
 </html>
