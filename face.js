@@ -1,3 +1,6 @@
+// Vasu Bhog
+// Copyright Fall 2019
+
 // Javascript to create 2d imagemap on images
 //Get and set 
 var listVert = [];
@@ -28,8 +31,8 @@ function imageBackground(file){
     img = document.getElementById('face');
     var dataURL = reader.result;
     img.addEventListener("load",function(){
-      img.style.maxWidth = "1000px";
-      img.style.maxHeight = "1000px";
+      img.style.maxWidth = "1200px";
+      img.style.maxHeight = "1200px";
       w = img.width;
       h = img.height;
 
@@ -129,7 +132,7 @@ function secondPart(){
 
     context.moveTo(lPointx,lPointy);
     context.lineTo(fPointx,fPointy);
-    context.lineWidth = 2;
+    context.lineWidth = 1;
     context.strokeStyle = 'red'    
     context.stroke();
   };
